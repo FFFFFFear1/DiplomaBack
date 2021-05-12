@@ -1,0 +1,29 @@
+{
+  "name": "diploma-back",
+  "version": "1.0.0",
+  "description": "Back-end for diploma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FFFFFFear1/DiplomaBack.git"
+  },
+  "author": "Maxim Bogdanec <sasha1936@list.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FFFFFFear1/DiplomaBack/issues"
+  },
+  "homepage": "https://github.com/FFFFFFear1/DiplomaBack#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
