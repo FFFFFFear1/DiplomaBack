@@ -8,6 +8,7 @@ const app = express();
 const port = 3000;
 
 const SessionData = require("./models/sessionData");
+const User = require("./models/user");
 
 mongoose
   .connect(
@@ -61,6 +62,38 @@ app.get("/getSingleSession", function (req, res) {
     .catch((err) => {
       console.log(err);
     });
+});
+
+app.post("/req", jsonParser, (req, res) => {
+  User.findOne({ login: req.body.login }, (err, query) => {
+    if (err || query == null) {
+      user = new User({
+        login: req.body.login,
+        password: req.body.password,
+      });
+      user
+        .save()
+        .then((result) => {
+          console.log("added");
+          res.send(result);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      res.send("Такой юзер уже есть");
+    }
+  });
+});
+
+app.post("/login", jsonParser, (req, res) => {
+  User.findOne({ login: req.body.login }, (err, query) => {
+    if (err || query == null) {
+      res.send("Такой юзера нет");
+    } else {
+      res.send(query);
+    }
+  });
 });
 
 app.use((req, res) => {
